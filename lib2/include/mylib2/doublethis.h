@@ -1,3 +1,5 @@
 #pragma once
 
-int doubleThis(int number);
+#include "mylib2/export.h"
+
+EXPORTED int doubleThis(int number);
