@@ -1,0 +1,30 @@
+cmake_minimum_required(VERSION 3.10)
+
+project(MyLib2)
+
+add_library(${PROJECT_NAME} SHARED
+  src/doublethis.cpp
+)
+
+target_include_directories(${PROJECT_NAME}
+  PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
+)
+
+include(GNUInstallDirs)
+set(INSTALL_CONFIGDIR ${CMAKE_INSTALL_LIBDIR}/cmake/MyLib2)
+
+install(TARGETS ${PROJECT_NAME}
+  EXPORT mylib2-targets
+  RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+)
+
+install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+
+install(EXPORT mylib2-targets
+  NAMESPACE MyLib2::
+  FILE mylib2-config.cmake
+  DESTINATION ${INSTALL_CONFIGDIR}
+)
