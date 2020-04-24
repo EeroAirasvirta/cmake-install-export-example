@@ -1,6 +1,8 @@
 #pragma once
 
-class MyLibClass {
+#include "mylib/export.h"
+
+class MyLib_EXPORT MyLibClass {
 public:
   MyLibClass(): number_{0} {}
 

@@ -1,11 +1,11 @@
 #pragma once
 
 #ifdef _WIN32
-#  ifdef Lib2_EXPORTS
-#    define EXPORTED __declspec( dllexport )
+#  ifdef MyLib2_EXPORTS
+#    define MyLib2_EXPORT __declspec( dllexport )
 #  else
-#    define EXPORTED __declspec( dllimport )
+#    define MyLib2_EXPORT __declspec( dllimport )
 #  endif
 #else
-#define EXPORTED
+#define MyLib2_EXPORT
 #endif

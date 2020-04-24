@@ -2,4 +2,4 @@
 
 #include "mylib2/export.h"
 
-EXPORTED int doubleThis(int number);
+MyLib2_EXPORT int doubleThis(int number);
